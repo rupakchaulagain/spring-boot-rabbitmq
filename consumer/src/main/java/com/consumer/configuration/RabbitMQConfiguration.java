@@ -32,27 +32,15 @@ public class RabbitMQConfiguration {
         return new DirectExchange("exchange.direct");
     }
 
-//    @Bean
-//    Binding binding(Queue queueA, DirectExchange exchange) {
-//        return BindingBuilder.bind(queueA).to(exchange).with(ROUTING_A);
-//    }
-
-    //fanout exchange
     @Bean
-    FanoutExchange fanOutExchange() {
-        return new FanoutExchange("exchange.fanout");
+    Binding binding(Queue queueA, DirectExchange exchange) {
+        return BindingBuilder.bind(queueA).to(exchange).with(ROUTING_A);
     }
 
     @Bean
-    Binding fanOutBinding(Queue queueA, FanoutExchange exchange) {
-        return BindingBuilder.bind(queueA)
-                .to(exchange);
-    }
-
-    @Bean
-    Binding bindingB(Queue queueB, FanoutExchange exchange) {
-        return BindingBuilder.bind(queueB).to(exchange);
-//                .with(ROUTING_B);
+    Binding bindingB(Queue queueB, DirectExchange exchange) {
+        return BindingBuilder.bind(queueB).to(exchange)
+                .with(ROUTING_B);
     }
 
     @Bean

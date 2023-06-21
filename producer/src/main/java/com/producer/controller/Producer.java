@@ -18,8 +18,8 @@ public class Producer {
     @Autowired
     DirectExchange exchange;
 
-    @Autowired
-    FanoutExchange fanoutExchange;
+//    @Autowired
+//    FanoutExchange fanoutExchange;
 
     @PostMapping("/send")
     public String send(@RequestBody Message message) {
@@ -27,9 +27,9 @@ public class Producer {
         return "Message sent successfully";
     }
 
-    @PostMapping("/fanout/send")
-    public String fanoutSend(@RequestBody Message message) {
-        rabbitTemplate.convertAndSend(fanoutExchange.getName(), "", message);
-        return "Message sent successfully";
-    }
+//    @PostMapping("/fanout/send")
+//    public String fanoutSend(@RequestBody Message message) {
+//        rabbitTemplate.convertAndSend(fanoutExchange.getName(), "", message);
+//        return "Message sent successfully";
+//    }
 }
