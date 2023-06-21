@@ -52,7 +52,6 @@
 //    @Bean
 //    Binding bindingB(Queue queueB, FanoutExchange exchange) {
 //        return BindingBuilder.bind(queueB).to(exchange);
-////                .with(ROUTING_B);
 //    }
 //
 //    @Bean

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class Consumer {
 
     @RabbitListener(queues = "queue.A")
-    public void receiveFromA(String message) {
+    public void receiveFromA(Message message) {
         log.info("Message received from QUEUE A->{}:" + message);
     }
 
